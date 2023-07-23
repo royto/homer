@@ -213,20 +213,28 @@ body {
     text-overflow: inherit;
   }
 
-  .tag {
-    color: var(--highlight-secondary);
-    background-color: var(--highlight-secondary);
+  .tags {
     position: absolute;
     bottom: 1rem;
     right: -0.2rem;
-    width: 3px;
-    overflow: hidden;
-    transition: all 0.2s ease-out;
-    padding: 0;
+    
 
-    .tag-text {
-      display: none;
-    }
+    .tag {
+      color: var(--highlight-secondary);
+      background-color: var(--highlight-secondary);
+      width: 0px;
+      overflow: hidden;
+      transition: all 0.2s ease-out;
+      padding: 0;
+
+      &:last-child {
+        width: 3px;
+      }
+      
+      .tag-text {
+        display: none;
+      }
+    } 
   }
 
   .card {

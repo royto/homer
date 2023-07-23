@@ -30,8 +30,15 @@
             </div>
             <slot name="indicator" class="indicator"></slot>
           </div>
-          <div class="tag" :class="item.tagstyle" v-if="item.tag">
-            <strong class="tag-text">#{{ item.tag }}</strong>
+          <div class="tags">
+            <template v-if="Array.isArray(item.tag)">
+              <div class="tag" :class="item.tagstyle" v-for="tag in item.tag">
+              <strong class="tag-text">#{{ tag }}</strong>
+            </div>
+            </template>
+            <div class="tag" :class="item.tagstyle" v-else-if="item.tag">
+              <strong class="tag-text">#{{ item.tag }}</strong>
+            </div>
           </div>
         </div>
       </a>
