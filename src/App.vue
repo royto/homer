@@ -260,7 +260,8 @@ export default {
       return (
         item.name.toLowerCase().includes(needle) ||
         (item.subtitle && item.subtitle.toLowerCase().includes(needle)) ||
-        (item.tag && item.tag.toLowerCase().includes(needle)) ||
+        (item.tag && !Array.isArray(item.tag) && item.tag.toLowerCase().includes(needle)) ||
+        (item.tag && Array.isArray(item.tag) && item.tag.some(t => t.toLowerCase().includes(needle))) ||
         (item.keywords && item.keywords.toLowerCase().includes(needle))
       );
     },
